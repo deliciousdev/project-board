@@ -27,7 +27,7 @@ spring:
       hibernate.default_batch_fetch_size: 100 #JPA에서 연관관계가 있는 쿼리를 사용하게 될때 한번에 벌크로 select 해올 수 있도록 해주는 설정
                                               #ex.테이블안에 조인테이브롤 가져와야하는 row수가 10개 정도 된다면 쿼리가 10개까지도 만들어 질수 있는데, 이런것을 해결하는방법중에 하나임
                                               #10개의 쿼리를 아이디인쿼리로 바꿔줘서 1번의 select문으로 바꿀수 있게 도와줌 : 최대 100개 단위로 묶어서 select할수 있음
-
+  h2.console.enabled: true
   sql.init.mode: always #테스트 초기 데이터인 data.sql을 언제 실행 시킬것인가에 대한 옵션
                         #NEVER         /ALWAYS                /EMBEDDED
                         #작동시키지않는다 /리얼 환경에서도 작동시킨다 /임베디드일(테스트환경)때만 작동한다
@@ -52,9 +52,7 @@ spring:
 #            token-uri: https://kauth.kakao.com/oauth/token
 #            user-info-uri: https://kapi.kakao.com/v2/user/me
 #            user-name-attribute: id
-  h2:
-    console:
-      enabled: false
+
 
 #yaml 파일은 --- 이것을 기준으로 여러개의 문서를 만들 수 있음음
 #여기까지가 기본 도큐먼트
