@@ -16,10 +16,11 @@ spring:
     username: testuser
     password: testpassword
     driver-class-name: com.mysql.cj.jdbc.Driver #MySQL8버전 부터는 이 드라이버로 해줘야함
+
   jpa:
 #    open-in-view: false
     defer-datasource-initialization: true #테스트용 데이터베이스 데이터를 만들수 있게끔 해줌
-    hibernate.ddl-auto: create # 우리가 만든 엔티티클래스들과, jpa 설정들을 기반으로 테이블 데이터를 유추하여 자동으로 ddl쿼리문을 만들어줌
+    hibernate.ddl-auto: create
     show-sql: true  #sql문장 을 디버그로 보는 옵션
     properties:     # 추가적인 프로퍼티를 통해서 jpa에 사용할 구현체의 종속된 프로퍼티를 설정할수 있음. 현재 스프링데이터JPA는 기본구현체로 하이버네이트를 사용한다.
                     #jpa구현체는 하이버네이트 말고도 여러가지가 있는데 하이버네이트에서만 전용으로 사용하는 프로퍼티들은 여기서 설정해준다
@@ -27,7 +28,6 @@ spring:
       hibernate.default_batch_fetch_size: 100 #JPA에서 연관관계가 있는 쿼리를 사용하게 될때 한번에 벌크로 select 해올 수 있도록 해주는 설정
                                               #ex.테이블안에 조인테이브롤 가져와야하는 row수가 10개 정도 된다면 쿼리가 10개까지도 만들어 질수 있는데, 이런것을 해결하는방법중에 하나임
                                               #10개의 쿼리를 아이디인쿼리로 바꿔줘서 1번의 select문으로 바꿀수 있게 도와줌 : 최대 100개 단위로 묶어서 select할수 있음
-  h2.console.enabled: true
   sql.init.mode: always #테스트 초기 데이터인 data.sql을 언제 실행 시킬것인가에 대한 옵션
                         #NEVER         /ALWAYS                /EMBEDDED
                         #작동시키지않는다 /리얼 환경에서도 작동시킨다 /임베디드일(테스트환경)때만 작동한다
