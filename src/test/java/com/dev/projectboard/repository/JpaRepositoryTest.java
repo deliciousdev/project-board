@@ -98,6 +98,5 @@ class JpaRepositoryTest {
         //Then
         assertThat(articleRepository.count()).isEqualTo(previousArticleCount - 1);
         assertThat(articleCommentRepository.count()).isEqualTo(previousArticleCommentCount - toBeDeletedCommentCount);
-
     }
 }
