@@ -31,9 +31,10 @@ spring:
   sql.init.mode: always #테스트 초기 데이터인 data.sql을 언제 실행 시킬것인가에 대한 옵션
                         #NEVER         /ALWAYS                /EMBEDDED
                         #작동시키지않는다 /리얼 환경에서도 작동시킨다 /임베디드일(테스트환경)때만 작동한다
-#  data.rest:
-#    base-path: /api
-#    detection-strategy: annotated
+  data.rest:
+    base-path: /api
+    detection-strategy: annotated
+
 #  thymeleaf3.decoupled-logic: true
 
 #  security:
