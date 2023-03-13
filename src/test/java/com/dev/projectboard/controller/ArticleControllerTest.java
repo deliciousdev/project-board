@@ -22,14 +22,15 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
-    @Disabled("구현중")
+//    @Disabled("구현중")
     @DisplayName("[view] [GET} 게시글 리스트 (게시판) 페이지 - 정상 호출")
     @Test
     void givenNothing_whenRequestingArticlesView_thenReturnsArticlesView() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/articles")) //이런 요청을 했을때
                 .andExpect(MockMvcResultMatchers.status().isOk())  //200ok 이여야하고
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML)) // 컨텐트 타입은 이거 여야함 : 뷰이므로 text_html 을 받음
+//                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML)) // 컨텐트 타입은 이거 여야함 : 뷰이므로 text_html 을  :exact 매칭
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 컨텐트 타입은 이거 여야함 : 뷰이므로 text_html 을 받음
                 .andExpect(MockMvcResultMatchers.view().name("articles/index")) //이러한 view 가 있어야함
                 .andExpect(MockMvcResultMatchers.model().attributeExists("articles"));//model 에 해당 키가 있는지 검증(서버로부터 데이터왔는지)
         //게시글 리스트 이므로 articles
